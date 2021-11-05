@@ -56,6 +56,13 @@ namespace Monoalphabetic
 
             foreach(char letter in text)
             {
+                if(char.IsDigit(letter))
+                {
+                    MessageBox.Show("The text must be only alphabetics");
+                    this.text.Focus();
+                    this.text.Text = "Hello";
+                    break;
+                }
                 bool checkLower = char.IsLower(letter);
                 //MessageBox.Show(checkLower.ToString() + "\n" + letter);
                 for (int i = 0; i < alphabetics.Length; i++)
@@ -94,6 +101,12 @@ namespace Monoalphabetic
 
             foreach (char letter in text)
             {
+                if (char.IsDigit(letter))
+                {
+                    MessageBox.Show("The text must be only alphabetics");
+                    this.text.Focus();
+                    break;
+                }
                 bool checkLower = char.IsLower(letter);
                 for (int i = 0; i < alphabetics.Length; i++)
                 {
