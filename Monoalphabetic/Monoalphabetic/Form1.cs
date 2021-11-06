@@ -85,11 +85,12 @@ namespace Monoalphabetic
             }
             //MessageBox.Show(encryptedText);
             this.encText.Text = encryptedText;
+            this.encText.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String text = this.encText.Text;
+            String text = this.text.Text;
             char[] alphabetics = {'A', 'B', 'C', 'D', 'E', 'F'
                     , 'G', 'H', 'I', 'J', 'K', 'L'
                     , 'M', 'N', 'O', 'P', 'Q', 'R'
@@ -108,17 +109,17 @@ namespace Monoalphabetic
                     break;
                 }
                 bool checkLower = char.IsLower(letter);
-                for (int i = 0; i < alphabetics.Length; i++)
+                for (int i = 0; i < key.Length; i++)
                 {
-                    if (char.ToUpper(letter) == alphabetics[i])
+                    if (char.ToUpper(letter) == key[i])
                     {
                         if (checkLower)
                         {
-                            decryptedText += key[i].ToString().ToLower();
+                            decryptedText += alphabetics[i].ToString().ToLower();
                         }
                         else
                         {
-                            decryptedText += key[i];
+                            decryptedText += alphabetics[i];
                         }
                         break;
                     }
@@ -126,6 +127,7 @@ namespace Monoalphabetic
                 }
             }
             this.decText.Text = decryptedText;
+            this.decText.Focus();
         }
     }
 }
